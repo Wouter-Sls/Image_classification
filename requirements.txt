@@ -1,4 +1,4 @@
-tensorflow==2.6.0
+tensorflow
 streamlit
 matplotlib
-numpy==1.23.4
+numpy
