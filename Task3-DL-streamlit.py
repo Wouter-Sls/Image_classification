@@ -101,7 +101,7 @@ if st.session_state.myslider != 1:
 
 apple= Image.open('datasets/training_set/apples/apples.1.jpg')
 st.image(apple)
-banana= Image.open('datasets/training_set/apples/bananas.1.jpg')
+banana= Image.open('datasets/training_set/bananas/bananas.1.jpg')
 st.image(banana)
 
 history2 = model.fit(training_set, validation_data=validation_set, epochs=epoch)
