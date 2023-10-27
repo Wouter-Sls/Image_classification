@@ -48,6 +48,7 @@ test_set = test_datagen.flow_from_directory('datasets/test_set',
 
 
 ############################################# show total per category ########################
+st.subheader("Total images per category:")
 root_directory = ["datasets/training_set/","datasets/test_set/" ]
 
 def count_pictures(root_directory, category):
