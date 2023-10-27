@@ -125,4 +125,4 @@ ax2.legend()
 fig.tight_layout()
 
 # Show the figure
-st.plt.show()
+st.pyplot(fig)
