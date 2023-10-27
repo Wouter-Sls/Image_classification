@@ -1,10 +1,12 @@
 # TensorFlow and tf.keras
+import numpy as np
 import tensorflow as tf
 from tensorflow.keras import optimizers
 from tensorflow.keras import layers
 from keras.preprocessing.image import ImageDataGenerator
 import streamlit as st
 import matplotlib.pyplot as plt
+import os
 
 ################################### Title ###############################################################
 st.title("Image Classification") #Show the title of the app on Streamlit
@@ -44,7 +46,27 @@ test_set = test_datagen.flow_from_directory('datasets/test_set',
                                             class_mode = 'categorical')
 
 
+############################################# show total per category ########################
+root_directory = ["datasets/training_set/","datasets/test_set/" ]
 
+def count_pictures(root_directory, category):
+    counter = 0
+    for foldername, subfolders, filenames in os.walk(root_directory):
+        for filename in filenames:
+            if category in filename:
+                counter += 1
+    return counter
+
+total_count = 0
+for category in categories:
+    # For every category count the total images in the training_set and test_set folder and print them
+    count = count_pictures(root_directory[0], category)
+    count += count_pictures(root_directory[1], category)
+    st.write(f"Total images of {category}: {count}")
+    total_count += count
+    count = 0
+
+st.write(f"Total images: {total_count}")
 
 ################################### Model ###############################
 NUM_CLASSES = 5
