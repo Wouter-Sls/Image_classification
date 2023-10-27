@@ -7,6 +7,7 @@ from keras.preprocessing.image import ImageDataGenerator
 import streamlit as st
 import matplotlib.pyplot as plt
 import os
+from PIL import Image
 
 ################################### Title ###############################################################
 st.title("Image Classification") #Show the title of the app on Streamlit
@@ -97,6 +98,11 @@ model.compile(optimizer = optimizers.Adam(learning_rate=0.001),
 epoch=20
 if st.session_state.myslider != 1:
     epoch=int(st.session_state.myslider)
+
+apple= Image.open('datasets/training_set/apples/apples.1.jpg')
+st.image(apple)
+banana= Image.open('datasets/training_set/apples/bananas.1.jpg')
+st.image(banana)
 
 history2 = model.fit(training_set, validation_data=validation_set, epochs=epoch)
 
