@@ -95,7 +95,7 @@ model.compile(optimizer = optimizers.Adam(learning_rate=0.001),
 
 ################################### Model training ###############################
 epoch=20
-if st.session_state.myslider != 0:
+if st.session_state.myslider != 1:
     epoch=int(st.session_state.myslider)
 
 history2 = model.fit(training_set, validation_data=validation_set, epochs=epoch)
