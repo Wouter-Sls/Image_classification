@@ -93,19 +93,20 @@ model.compile(optimizer = optimizers.Adam(learning_rate=0.001),
               loss = 'categorical_crossentropy', 
               metrics = ['accuracy'])
 
-
-################################### Model training ###############################
-epoch=20
-if st.session_state.myslider != 1:
-    epoch=int(st.session_state.myslider)
-
+################################### Sample images ###############################
+st.subheader("Sample images:")
 apple= Image.open('datasets/training_set/apples/apples.1.jpg')
 st.image(apple)
 banana= Image.open('datasets/training_set/bananas/bananas.1.jpg')
 st.image(banana)
 
+################################### Model training ###############################
+epoch=20
+if st.session_state.myslider != 1:
+    epoch=int(st.session_state.myslider)
 history2 = model.fit(training_set, validation_data=validation_set, epochs=epoch)
 
+st.subheader("Train and validation error:")
 
 ################################### Visualize loss and accurracy ###############################
 # Create a figure and a grid of subplots with a single call
